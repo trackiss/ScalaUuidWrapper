@@ -4,7 +4,7 @@ import java.util.UUID
 
 import scala.util.Try
 
-case class Uuid private (value: UUID) extends Ordered[Uuid] {
+case class Uuid private (private val value: UUID) extends Ordered[Uuid] {
   def leastSignificantBits: Long = value.getLeastSignificantBits
   def mostSignificantBits: Long = value.getMostSignificantBits
   def version: Try[UuidVersion] = UuidVersion.fromInt(value.version)
